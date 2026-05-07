@@ -1,0 +1,266 @@
+/* ═══════════════════════════════════════════
+   SKYLINE TRAVEL — GLOBAL STYLES
+   ═══════════════════════════════════════════ */
+
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap");
+
+/* ── Reset ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Root ── */
+:root {
+  --font: "Plus Jakarta Sans", sans-serif;
+
+  /* Dark theme (default) */
+  --bg:          #060d19;
+  --bg-alt:      #0a1525;
+  --bg-card:     #0f1e30;
+  --text:        #f0f6ff;
+  --text-muted:  #7a95b4;
+  --border:      rgba(255, 255, 255, 0.06);
+  --accent:      #0ea5e9;
+  --accent-hover:#38bdf8;
+  --accent-dim:  rgba(14, 165, 233, 0.12);
+  --stats-bar:   #080f1e;
+  --shadow:      0 8px 32px rgba(0, 0, 0, 0.5);
+  --nav-bg:      rgba(6, 13, 25, 0.93);
+  --input-bg:    #0a1525;
+  --input-border:rgba(255, 255, 255, 0.1);
+}
+
+/* Light theme override */
+body.light {
+  --bg:          #f0f7ff;
+  --bg-alt:      #e4effa;
+  --bg-card:     #ffffff;
+  --text:        #0b1929;
+  --text-muted:  #4a6880;
+  --border:      #dbeafe;
+  --accent:      #0284c7;
+  --accent-hover:#0369a1;
+  --accent-dim:  rgba(2, 132, 199, 0.1);
+  --stats-bar:   #1a6fa8;
+  --shadow:      0 8px 32px rgba(14, 100, 170, 0.12);
+  --nav-bg:      rgba(255, 255, 255, 0.95);
+  --input-bg:    #f8fbff;
+  --input-border:#bfdbfe;
+}
+
+/* ── Base ── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  transition: background 0.4s ease;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font-family: var(--font);
+  cursor: pointer;
+}
+
+input,
+textarea {
+  font-family: var(--font);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #94a3b8;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0.45;
+  cursor: pointer;
+  filter: invert(0.5);
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar             { width: 5px; }
+::-webkit-scrollbar-track       { background: #040a13; }
+::-webkit-scrollbar-thumb       { background: #1e3a5f; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #2d5a8f; }
+
+/* ── Utility ── */
+.section {
+  padding: 5.5rem 2rem;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.section-label {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.section-label--light {
+  color: rgba(56, 189, 248, 0.8);
+}
+
+.section-title {
+  font-size: clamp(1.9rem, 4.5vw, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+}
+
+.section-title em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--accent);
+}
+
+.section-title--light {
+  color: #f0f6ff;
+}
+
+.section-title--light em {
+  color: #38bdf8;
+}
+
+.section-sub {
+  color: var(--text-muted);
+  max-width: 500px;
+  margin: 0 auto;
+  font-size: 0.93rem;
+  line-height: 1.75;
+  font-weight: 300;
+}
+
+.section-sub--light {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+/* ── Cards grid ── */
+.dest-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1.25rem;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.deals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.testi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .section { padding: 3.5rem 1.25rem; }
+  .dest-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+  .blog-grid { grid-template-columns: 1fr; }
+  .deals-grid { grid-template-columns: 1fr; }
+  .why-grid { grid-template-columns: 1fr 1fr; }
+  .testi-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Search bar ── */
+.search-bar-wrap {
+  margin-bottom: 1.5rem;
+}
+.search-bar {
+  width: 100%;
+  max-width: 420px;
+  padding: 0.65rem 1rem;
+  border-radius: 0.6rem;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.92rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.search-bar:focus { border-color: var(--accent); }
+.search-bar::placeholder { color: var(--text-muted); }
+
+.no-results {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 4rem 0;
+  font-size: 1rem;
+}
+
+/* ── PWA Install Prompt ── */
+.install-prompt {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(92vw, 480px);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  padding: 1.1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+  z-index: 1200;
+}
+.install-prompt__msg {
+  flex: 1;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+.install-prompt__actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+.install-prompt__dismiss {
+  font-size: 0.82rem;
+  padding: 0.45rem 0.9rem;
+}
+@media (max-width: 520px) {
+  .install-prompt { flex-direction: column; align-items: flex-start; bottom: 0; border-radius: 1rem 1rem 0 0; width: 100%; }
+}

@@ -1,0 +1,217 @@
+/* ═══════════════════════════════════════════
+   HERO SECTION
+   ═══════════════════════════════════════════ */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Background image (controlled via inline style for parallax) */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  scale: 1.1;
+}
+
+/* Dark overlay gradient */
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(6, 13, 25, 0.92) 0%,
+    rgba(6, 13, 25, 0.62) 55%,
+    rgba(6, 13, 25, 0.28) 100%
+  );
+}
+
+/* Content wrapper */
+.hero__content {
+  position: relative;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 7rem 2rem 5rem;
+  width: 100%;
+}
+
+/* Badge */
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  color: #7dd3fc;
+  padding: 0.38rem 1rem;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+
+/* Heading */
+.hero__h1 {
+  font-size: clamp(3rem, 8vw, 5.8rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.2rem;
+}
+
+.hero__h1 span {
+  color: #38bdf8;
+  font-style: italic;
+  font-weight: 300;
+}
+
+/* Sub text */
+.hero__sub {
+  font-size: 1.03rem;
+  color: rgba(255, 255, 255, 0.58);
+  max-width: 500px;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  font-weight: 300;
+}
+
+/* Popular tags row */
+.hero__tags {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.hero__tags-label {
+  color: rgba(255, 255, 255, 0.38);
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+}
+
+.hero__tag {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.65);
+  padding: 0.27rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  transition: all 0.2s;
+}
+
+.hero__tag:hover {
+  background: rgba(56, 189, 248, 0.18);
+  color: #38bdf8;
+  border-color: rgba(56, 189, 248, 0.38);
+}
+
+/* ── Search Box ── */
+.search-box {
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 18px;
+  padding: 1.4rem;
+  box-shadow: 0 32px 100px rgba(0, 0, 0, 0.45);
+  max-width: 830px;
+  backdrop-filter: blur(12px);
+}
+
+.search-fields {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-bottom: 1.1rem;
+  border: 1.5px solid #dbeafe;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.search-field {
+  padding: 0.85rem 1.1rem;
+  border-right: 1px solid #dbeafe;
+}
+
+.search-field:last-child {
+  border-right: none;
+}
+
+.search-field__label {
+  display: block;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.search-field__input {
+  background: none;
+  border: none;
+  color: #0b1929;
+  font-size: 0.9rem;
+  width: 100%;
+  outline: none;
+  font-weight: 500;
+}
+
+.search-submit {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, #0ea5e9, #1d4ed8);
+  border: none;
+  border-radius: 12px;
+  transition: filter 0.2s, transform 0.15s;
+}
+
+.search-submit:hover {
+  filter: brightness(1.08);
+  transform: scale(1.02);
+}
+
+.search-submit:active {
+  transform: scale(0.97);
+}
+
+/* Scroll indicator */
+.hero__scroll {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  pointer-events: none;
+}
+
+.hero__scroll-line {
+  width: 1px;
+  height: 38px;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.hero__scroll-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .hero__content { padding: 5.5rem 1.25rem 4rem; }
+  .search-fields  { grid-template-columns: 1fr 1fr; }
+  .search-field   { border-right: none; border-bottom: 1px solid #dbeafe; }
+  .search-field:nth-child(odd)  { border-right: 1px solid #dbeafe; }
+  .search-field:nth-last-child(-n+2) { border-bottom: none; }
+}

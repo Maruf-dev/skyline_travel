@@ -1,0 +1,330 @@
+/* ═══════════════════════════════════════════
+   CARDS — Destination, Blog, Deal, Why, Testi
+   ═══════════════════════════════════════════ */
+
+/* ── Destination Card ── */
+.dest-card {
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--bg-card);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
+}
+
+.dest-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.dest-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.2);
+}
+
+.dest-card__img {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.dest-card__tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #f97316;
+  color: #fff;
+  padding: 0.22rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+
+.dest-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(6, 13, 25, 0.72) 0%, transparent 55%);
+}
+
+.dest-card__info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+}
+
+.dest-card__city {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.dest-card__country {
+  font-size: 0.67rem;
+  color: rgba(255, 255, 255, 0.58);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.dest-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.85rem 1rem;
+}
+
+.dest-card__from {
+  font-size: 0.87rem;
+  color: var(--text-muted);
+}
+
+.dest-card__from strong {
+  color: var(--accent);
+}
+
+.dest-card__btn {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.38rem 0.88rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.dest-card__btn:hover   { background: var(--accent-hover); }
+.dest-card__btn:active  { transform: scale(0.96); }
+
+/* ── Deal Card ── */
+.deal-card {
+  background: #0f1e30;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.deal-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 28px 64px rgba(0, 0, 0, 0.5);
+}
+
+.deal-card__img {
+  height: 175px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.deal-card__save {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: #f97316;
+  color: #fff;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 0.75rem;
+}
+
+.deal-card__body { padding: 1.25rem; }
+
+.deal-card__route {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #f0f6ff;
+  margin-bottom: 0.25rem;
+}
+
+.deal-card__meta {
+  font-size: 0.77rem;
+  color: rgba(255, 255, 255, 0.36);
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+.deal-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.deal-card__price {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #38bdf8;
+}
+
+/* ── Blog Card ── */
+.blog-card {
+  background: var(--bg-card);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
+}
+
+.blog-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.blog-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow);
+}
+
+.blog-card__img {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.blog-card__cat {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(6, 13, 25, 0.75);
+  backdrop-filter: blur(8px);
+  color: #38bdf8;
+  padding: 0.22rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+.blog-card__body { padding: 1.25rem; }
+
+.blog-card__meta {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+}
+
+.blog-card__title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.3;
+  margin-bottom: 0.6rem;
+}
+
+.blog-card__excerpt {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+.blog-card__link {
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0;
+  transition: transform 0.2s;
+  display: inline-block;
+}
+
+.blog-card__link:hover { transform: translateX(4px); }
+
+/* ── Why Card ── */
+.why-card {
+  background: var(--bg-card);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  border: 1.5px solid var(--border);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.why-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px var(--accent-dim);
+  border-color: var(--accent);
+}
+
+.why-card__icon {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  display: block;
+  transition: transform 0.35s ease;
+}
+
+.why-card:hover .why-card__icon { transform: scale(1.2) rotate(5deg); }
+
+.why-card__title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.6rem;
+}
+
+.why-card__desc {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* ── Testimonial Card ── */
+.testi-card {
+  background: #0f1e30;
+  border-radius: 16px;
+  padding: 1.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  transition: border-color 0.25s;
+}
+
+.testi-card:hover { border-color: rgba(56, 189, 248, 0.22); }
+
+.testi-card__stars {
+  color: #f59e0b;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+}
+
+.testi-card__text {
+  font-style: italic;
+  font-weight: 300;
+  color: rgba(240, 246, 255, 0.72);
+  line-height: 1.75;
+  font-size: 0.94rem;
+  margin-bottom: 1.25rem;
+}
+
+.testi-card__author {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.testi-card__avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.testi-card__name {
+  color: #e2e8f0;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.testi-card__loc {
+  color: rgba(255, 255, 255, 0.36);
+  font-size: 0.74rem;
+}
