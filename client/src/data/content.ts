@@ -107,7 +107,7 @@ export const DEALS: Deal[] = [
 
 export const BLOGS: BlogPost[] = [
   {
-    id: 1, cat: "Guide", title: "Top 10 Things to Do in Dubai in 2025",
+    id: "1", cat: "Guide", title: "Top 10 Things to Do in Dubai in 2025",
     date: "Apr 2, 2025", read: "6 min",
     img: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&auto=format&fit=crop",
     imgLarge: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=1600&auto=format&fit=crop",
@@ -119,7 +119,7 @@ export const BLOGS: BlogPost[] = [
     ],
   },
   {
-    id: 2, cat: "Tips", title: "How to Travel Cheap from Uzbekistan to Europe",
+    id: "2", cat: "Tips", title: "How to Travel Cheap from Uzbekistan to Europe",
     date: "Mar 18, 2025", read: "8 min",
     img: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=600&auto=format&fit=crop",
     imgLarge: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=1600&auto=format&fit=crop",
@@ -131,7 +131,7 @@ export const BLOGS: BlogPost[] = [
     ],
   },
   {
-    id: 3, cat: "Story", title: "A Week in Bali: Temples, Rice Fields & Sunsets",
+    id: "3", cat: "Story", title: "A Week in Bali: Temples, Rice Fields & Sunsets",
     date: "Mar 5, 2025", read: "5 min",
     img: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600&auto=format&fit=crop",
     imgLarge: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=1600&auto=format&fit=crop",
@@ -143,7 +143,7 @@ export const BLOGS: BlogPost[] = [
     ],
   },
   {
-    id: 4, cat: "Guide", title: "Istanbul in 3 Days: The Ultimate Itinerary",
+    id: "4", cat: "Guide", title: "Istanbul in 3 Days: The Ultimate Itinerary",
     date: "Feb 22, 2025", read: "7 min",
     img: "https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?w=600&auto=format&fit=crop",
     imgLarge: "https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?w=1600&auto=format&fit=crop",
@@ -155,7 +155,7 @@ export const BLOGS: BlogPost[] = [
     ],
   },
   {
-    id: 5, cat: "Tips", title: "Best Time to Visit the Maldives",
+    id: "5", cat: "Tips", title: "Best Time to Visit the Maldives",
     date: "Feb 10, 2025", read: "4 min",
     img: "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=600&auto=format&fit=crop",
     imgLarge: "https://images.unsplash.com/photo-1573843981267-be1999ff37cd?w=1600&auto=format&fit=crop",
@@ -167,7 +167,7 @@ export const BLOGS: BlogPost[] = [
     ],
   },
   {
-    id: 6, cat: "Story", title: "Solo Travel in Japan: A Personal Journey",
+    id: "6", cat: "Story", title: "Solo Travel in Japan: A Personal Journey",
     date: "Jan 28, 2025", read: "10 min",
     img: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=600&auto=format&fit=crop",
     imgLarge: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=1600&auto=format&fit=crop",

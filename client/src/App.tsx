@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect } from "react";
 import { motion, AnimatePresence, MotionConfig } from "framer-motion";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { ThemeProvider, LangProvider } from "./context/index";
+import { AdminProvider } from "./context/admin";
 import { ToastProvider } from "./components/Toast";
 import { BookingProvider } from "./components/BookingModal";
 import { trackPageView } from "./utils/analytics";
@@ -18,6 +19,13 @@ const BlogDetail        = lazy(() => import("./pages/BlogDetail"));
 const About             = lazy(() => import("./pages/About"));
 const Contact           = lazy(() => import("./pages/Contact"));
 const NotFound          = lazy(() => import("./pages/NotFound"));
+const AdminLogin        = lazy(() => import("./pages/admin/AdminLogin"));
+const AdminLayout       = lazy(() => import("./pages/admin/AdminLayout"));
+const AdminDashboard    = lazy(() => import("./pages/admin/AdminDashboard"));
+const AdminDestinations = lazy(() => import("./pages/admin/AdminDestinations"));
+const AdminBlogs        = lazy(() => import("./pages/admin/AdminBlogs"));
+const AdminDeals        = lazy(() => import("./pages/admin/AdminDeals"));
+const AdminMessages     = lazy(() => import("./pages/admin/AdminMessages"));
 
 const pageVariants = {
   initial: { opacity: 0, y: 20 },
@@ -45,6 +53,32 @@ function AppContent() {
   useEffect(() => {
     trackPageView(window.location.href);
   }, [location.pathname]);
+
+  const isAdmin = location.pathname.startsWith("/admin");
+
+  if (isAdmin) {
+    return (
+      <Suspense fallback={<PageSkeleton />}>
+        <Routes>
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route
+            path="/admin/*"
+            element={
+              <AdminLayout>
+                <Routes>
+                  <Route index element={<AdminDashboard />} />
+                  <Route path="destinations" element={<AdminDestinations />} />
+                  <Route path="blogs" element={<AdminBlogs />} />
+                  <Route path="deals" element={<AdminDeals />} />
+                  <Route path="messages" element={<AdminMessages />} />
+                </Routes>
+              </AdminLayout>
+            }
+          />
+        </Routes>
+      </Suspense>
+    );
+  }
 
   return (
     <MotionConfig transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}>
@@ -75,7 +109,9 @@ export default function App() {
       <LangProvider>
         <ToastProvider>
           <BookingProvider>
-            <AppContent />
+            <AdminProvider>
+              <AppContent />
+            </AdminProvider>
           </BookingProvider>
         </ToastProvider>
       </LangProvider>

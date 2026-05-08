@@ -1,11 +1,14 @@
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useParams, Link } from "react-router-dom";
 import { useLang } from "../context/index";
 import { T } from "../data/translations";
-import { BLOGS } from "../data/content";
+import { fetchBlog } from "../utils/api";
 import { formatDate } from "../utils/format";
 import SEO from "../components/SEO";
+import PageSkeleton from "../components/PageSkeleton";
 import NotFound from "./NotFound";
+import type { BlogPost } from "../types";
 import "../styles/pages.css";
 import "../styles/cards.css";
 
@@ -13,9 +16,28 @@ export default function BlogDetail() {
   const { id } = useParams<{ id: string }>();
   const { lang } = useLang();
   const t = T[lang];
+  const [post, setPost] = useState<BlogPost | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [notFound, setNotFound] = useState(false);
 
-  const post = BLOGS.find((p) => String(p.id) === id);
-  if (!post) return <NotFound />;
+  useEffect(() => {
+    if (!id) { setNotFound(true); setLoading(false); return; }
+    let cancelled = false;
+    setLoading(true);
+    setNotFound(false);
+    fetchBlog(id)
+      .then((data) => { if (!cancelled) { setPost(data); setLoading(false); } })
+      .catch((err) => {
+        if (!cancelled) {
+          setNotFound(err.message === "not_found");
+          setLoading(false);
+        }
+      });
+    return () => { cancelled = true; };
+  }, [id]);
+
+  if (loading) return <PageSkeleton />;
+  if (notFound || !post) return <NotFound />;
 
   return (
     <div className="page-wrapper">

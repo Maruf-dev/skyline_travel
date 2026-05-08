@@ -13,7 +13,7 @@ export interface Destination {
 }
 
 export interface BlogPost {
-  id: number;
+  id: string;
   cat: string;
   title: string;
   date: string;

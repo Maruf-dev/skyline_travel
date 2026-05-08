@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLang } from "../context/index";
 import { T } from "../data/translations";
-import { BLOGS, BLOG_CATEGORIES } from "../data/content";
+import { BLOG_CATEGORIES } from "../data/content";
+import { fetchBlogs } from "../utils/api";
 import { STAGGER, FADE_UP } from "../constants/animations";
 import BlogCard from "../components/BlogCard";
+import PageSkeleton from "../components/PageSkeleton";
 import SEO from "../components/SEO";
 import type { BlogPost } from "../types";
 import "../styles/cards.css";
@@ -24,8 +26,23 @@ export default function Blog() {
   const t = T[lang];
   const [activeCategory, setActiveCategory] = useState("All");
   const [query, setQuery] = useState("");
+  const [blogs, setBlogs] = useState<BlogPost[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  const filtered = BLOGS.filter((post) => {
+  useEffect(() => {
+    let cancelled = false;
+    setLoading(true);
+    setError(null);
+    fetchBlogs()
+      .then((data) => { if (!cancelled) { setBlogs(data); setLoading(false); } })
+      .catch((err) => { if (!cancelled) { setError(err.message); setLoading(false); } });
+    return () => { cancelled = true; };
+  }, []);
+
+  if (loading) return <PageSkeleton />;
+
+  const filtered = blogs.filter((post) => {
     const catMatch = activeCategory === "All" || post.cat === activeCategory;
     const searchMatch = query.trim() === "" || matchesBlog(post, query);
     return catMatch && searchMatch;
@@ -55,6 +72,12 @@ export default function Blog() {
 
       <section className="section">
         <div className="container">
+          {error && (
+            <p className="no-results" style={{ color: "var(--clr-error, #e53e3e)" }}>
+              {error}
+            </p>
+          )}
+
           <div className="search-bar-wrap">
             <input
               type="search"
